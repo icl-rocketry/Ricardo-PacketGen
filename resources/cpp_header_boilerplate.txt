@@ -1,0 +1,45 @@
+#pragma once
+
+#include "rnp_packet.h"
+#include "rnp_serializer.h"
+
+
+class {classname} : public RnpPacket{{
+    private:
+    //serializer framework
+        static constexpr auto getSerializer()
+        {{
+            auto ret = RnpSerializer(
+               {memberVariableClassPointerList}
+               
+            );
+            return ret;
+        }}
+        
+    public:
+        ~{classname}();
+
+        {classname}();
+        /**
+         * @brief Deserialize Packet
+         * 
+         * @param data 
+         */
+        {classname} (const RnpPacketSerialized& packet);
+
+        /**
+         * @brief Serialize Packet
+         * 
+         * @param buf 
+         */
+        void serialize(std::vector<uint8_t>& buf) override;
+
+        {memberVariableList}
+
+        static constexpr size_t size(){{
+            return getSerializer().member_size();
+        }}
+
+}};
+
+
