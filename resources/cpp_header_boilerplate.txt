@@ -10,7 +10,7 @@ class {classname} : public RnpPacket{{
         static constexpr auto getSerializer()
         {{
             auto ret = RnpSerializer(
-               {memberVariableClassPointerList}
+{memberVariableClassPointerList}
                
             );
             return ret;
@@ -34,7 +34,7 @@ class {classname} : public RnpPacket{{
          */
         void serialize(std::vector<uint8_t>& buf) override;
 
-        {memberVariableList}
+{memberVariableList}
 
         static constexpr size_t size(){{
             return getSerializer().member_size();

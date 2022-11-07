@@ -1,0 +1,17 @@
+import struct
+
+from pylibrnp.rnppacket import RnpPacket
+
+class {classname}(RnpPacket):
+	
+    struct_str = {structstr}
+    size = struct.calcsize(struct_str)
+    packet_type = 0
+   
+    def __init__(self):
+{memberVariableList}
+        super().__init__(list(vars(self).keys()),{classname}.struct_str,{classname}.size,{classname}.packet_type)
+
+    def __str__(self):
+        header_str = self.header.__str__() + '\ns'
+        return header_str
