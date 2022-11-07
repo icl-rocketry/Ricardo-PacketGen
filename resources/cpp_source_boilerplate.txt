@@ -9,7 +9,7 @@
 
 {classname}::{classname}():
 RnpPacket(0,
-          101,
+          {packet_type},
           size())
 {{}};
 

@@ -30,6 +30,7 @@ def generate_cpp(PacketDescriptorObj):
     subs['memberVariableList'] = '\n'.join([ "\t\t"+var_type + " " + var_name + ";" for var_name,var_type in PacketDescriptorObj.packet_structure.items()])
     subs['memberVariableClassPointerList'] = ',\n'.join(["\t\t\t\t&"+PacketDescriptorObj.name+"::"+var_name for var_name in PacketDescriptorObj.packet_structure.keys()])
     subs['filename'] = PacketDescriptorObj.filename
+    subs['packet_type'] = PacketDescriptorObj.type
    
     cpp_header = cpp_header.format(**subs)
     cpp_source = cpp_source.format(**subs)
@@ -55,6 +56,7 @@ def generate_python(PacketDescriptorObj):
     subs['memberVariableList'] = '\n'.join(['        self.'+var_name+' = 0' for var_name in PacketDescriptorObj.packet_structure.keys()]) #have to use spaces because python doesnt like tab character?/
     subs['filename'] = PacketDescriptorObj.filename
     subs['structstr'] = "'"+PacketDescriptorObj.struct_str+"'"
+    subs['packet_type'] = PacketDescriptorObj.type
     py_file = py_file.format(**subs)
 
     with open(PacketDescriptorObj.filename+".py",'w',encoding='utf-8') as file:

@@ -6,7 +6,7 @@ class {classname}(RnpPacket):
 	
     struct_str = {structstr}
     size = struct.calcsize(struct_str)
-    packet_type = 0
+    packet_type = {packet_type}
    
     def __init__(self):
 {memberVariableList}
